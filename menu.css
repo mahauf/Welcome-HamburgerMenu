@@ -1,0 +1,107 @@
+.menu-wrap{
+    position: fixed;
+   
+}
+.menu-wrap .toggler{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+.hamburger{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background-color: #6a9142be;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.menu-wrap .hamburger > div{
+    position: relative;
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.4s ease;
+    
+}
+.menu-wrap .hamburger > div::before, .menu-wrap .hamburger > div::after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 30px;
+    height: 2px;
+    background-color: white;  
+}
+.menu-wrap .hamburger > div::after{
+    top: 10px;
+}
+
+
+/* Turns lines into X */
+.menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+}
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+
+/* rotate on hover when checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div{
+    transform: rotate(225deg);
+}
+
+
+
+.menu ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    height: 60px;
+    background-color: #6a91427a ;
+    visibility: hidden;
+    transform: scaleY(0);
+    transition: all 0.9s ease; 
+}
+ul li{
+    list-style: none;
+ }
+ul li a{
+    font-weight: bold;
+}
+ul li a:hover{
+    color: #9fff40;
+}
+.menu-wrap .toggler:checked ~ .menu ul{
+    visibility: visible;
+    transform: scaleY(1);  
+    
+}
+
+
+
+@media(max-width: 600px){
+ .menu ul{
+    flex-direction: column;
+    width: 100vw;
+    height:100vh;
+    justify-content: center;
+    background-color: #6a9142ec ;
+ }
+ ul li{
+    padding-bottom: 20px;
+ }
+
+}
+
